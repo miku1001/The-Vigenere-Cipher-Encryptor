@@ -21,9 +21,18 @@ dict_char = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I'
              'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16, 'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22,
              'X': 23, 'Y': 24, 'Z': 25}
 
-# Create a list where you'll put the character
-# Gather the equivalent number of the letter based on dictionary for key and message
-# add the number gathered from message and key
+def cipher(message, key):
+    # Create a list where you'll put the character
+    ciphertext = []
+
+    # Gather the equivalent number of the letter based on dictionary for key and message
+    for a, b in enumerate(message):
+        message_number = dict_char[b]
+        key_number = dict_char[key[a % len(key)]]
+
+        # add the number gathered from message and key
+        ciphertext.append((message_number + key_number) % 26)
+    
 # Convert the gathered numbers into string and insert it in list
 # Let user input it the data(uppercase, no space)
 # Let the user continue the process or stop
