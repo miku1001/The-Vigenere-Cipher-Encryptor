@@ -33,6 +33,12 @@ def cipher(message, key):
         # add the number gathered from message and key
         ciphertext.append((message_number + key_number) % 26)
     
-# Convert the gathered numbers into string and insert it in list
+    # Convert the gathered numbers into string and insert it in list
+    ciphertext = ''.join([list(dict_char.keys())[list(dict_char.values()).index(i)] for i in ciphertext])
+    print(f"\nSuccessful! \U0001F973 \n\033[33mHey {name}, here's the ciphertext:\033[0m", ciphertext)
+
 # Let user input it the data(uppercase, no space)
+cipher(input("Enter the message: ").upper().replace(" ", ""),
+       input("Enter the key: ").upper().replace(" ", ""))
+
 # Let the user continue the process or stop
